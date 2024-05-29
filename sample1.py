@@ -21,7 +21,7 @@ with col2:
 
 # Function to fetch data from the SQLite database based on user input
 def fetch_data(region=None, country=None, month=None):
-    conn = sqlite3.connect("C:/Users/shubham/Desktop/shubham/fake_hotel_pricing_with1000entries.db")
+    conn = sqlite3.connect("fake_hotel_pricing_with1000entries.db")
 
     query = "SELECT * FROM hotel_pricing"
     conditions = []
@@ -45,7 +45,7 @@ def main():
     st.title("Hotel Pricing Data Explorer")
 
     # Fetch unique values for regions, countries, and months
-    conn = sqlite3.connect("C:/Users/shubham/Desktop/shubham/fake_hotel_pricing_with1000entries.db")
+    conn = sqlite3.connect("fake_hotel_pricing_with1000entries.db")
     regions = pd.read_sql("SELECT DISTINCT region FROM hotel_pricing", conn)["region"].tolist()
     countries = pd.read_sql("SELECT DISTINCT country FROM hotel_pricing", conn)["country"].tolist()
     months = pd.read_sql("SELECT DISTINCT month FROM hotel_pricing", conn)["month"].tolist()
